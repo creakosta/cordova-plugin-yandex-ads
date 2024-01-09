@@ -978,5 +978,7 @@
     </dict>
 </array>
 </config-file>
+
+    <hook type="after_prepare" src="hooks/DeploymentTargetFix.js"/>    
     </platform>
 </plugin>

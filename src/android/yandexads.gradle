@@ -9,22 +9,34 @@ cdvPluginPostBuildExtras.add({
     repositories {
     google()
     mavenCentral()
+    // IronSource
     maven {
        url 'https://android-sdk.is.com/'
-    }
+    }         
+    // Pangle
     maven { 
        url 'https://artifact.bytedance.com/repository/pangle'
-    }
+    }        
+    // Tapjoy
     maven { 
        url "https://sdk.tapjoy.com/"
-    }
+    }        
+    // Mintegral
     maven { 
        url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
     }
-  }
+    // Chartboost
+    maven {
+       url "https://cboost.jfrog.io/artifactory/chartboost-ads/"
+    }
+    // AppNext
+    maven {
+       url "https://dl.appnext.com/"
+    }
+}
 
     dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar'])
-        implementation 'com.yandex.android:mobileads:6.3.0'
+        implementation 'com.yandex.android:mobileads-mediation:6.3.0.0'
     }
 });

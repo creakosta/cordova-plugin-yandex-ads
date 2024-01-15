@@ -36,8 +36,8 @@ cdvPluginPostBuildExtras.add({
 
     dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar'])
-        // implementation 'com.yandex.android:mobileads-mediation:6.3.0.0'
-        implementation 'com.yandex.android:mobileads:6.3.0'
+        implementation 'com.yandex.android:mobileads-mediation:6.3.0.0'
+        // implementation 'com.yandex.android:mobileads:6.3.0'
         // implementation 'com.yandex.ads.mediation:mobileads-mintegral:16.5.81.0'
     }
 });

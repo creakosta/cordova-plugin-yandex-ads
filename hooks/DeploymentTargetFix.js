@@ -20,18 +20,6 @@ module.exports = (context) => {
   if (podfileContent.indexOf("post_install") == -1) {
     podfileContent += `
 
-pod_targets_for_disable_build_for_distribution = [
-     'DivKit',
-     'DivKit_Base',
-     'DivKit_BaseTiny',
-     'DivKit_BaseUI',
-     'DivKit_LayoutKit',
-     'DivKit_LayoutKitInterface',
-     'DivKit_CommonCore',
-     'DivKit_Serialization',
-     'DivKit_Networking'
-]
-
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|

@@ -34,22 +34,12 @@ pod_targets_for_disable_build_for_distribution = [
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-           if target.name.start_with?(*pod_targets_for_disable_build_for_distribution)
-              target.build_configurations.each do |config|
-                  config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'NO'
-              end
-          end
-      end
-  
-  sharedLibrary = installer.aggregate_targets.find { |aggregate_target| aggregate_target.name == 'Pods-[MY_FRAMEWORK_TARGET]' }
-  
- 
-  installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
     end
   end
+end
 
   `;
 

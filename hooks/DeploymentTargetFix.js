@@ -42,7 +42,7 @@ post_install do |installer|
       end
 
   installer.pods_project.build_configurations.each do |config|
-    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64 i386"
   end
 
   installer.pods_project.targets.each do |target|

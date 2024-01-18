@@ -77,8 +77,8 @@
             </pods>
         </podspec>
 
-	<framework src="YandexMobileAds.framework" />
-        <framework src="YandexMobileMetrica.framework" />
+	<!-- <framework src="YandexMobileAds.framework" /> -->
+        <!-- <framework src="YandexMobileMetrica.framework" /> -->
 
         <!-- <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/> -->
 

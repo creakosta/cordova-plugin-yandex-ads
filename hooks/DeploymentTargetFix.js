@@ -23,7 +23,7 @@ module.exports = (context) => {
 post_install do |installer_representation|
 installer_representation.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-        config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+        config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
         config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'NO'
         config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
     end

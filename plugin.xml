@@ -72,8 +72,8 @@
             <config>
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
-            <pods use-frameworks="false">
-                <pod name="YandexMobileAds" spec="~> 6.0.0" />
+            <pods use-frameworks="true">
+                <pod name="YandexMobileAds" spec="~> 6.3.0" />
             </pods>
         </podspec>
 

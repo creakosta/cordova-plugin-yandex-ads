@@ -31,14 +31,14 @@ pod_targets = [
     
 pre_install do |installer|
 installer.pod_targets.each do |pod|
- if target.name.start_with?(*pod_targets)
-   puts "Overriding as static framework:#{pod.name}"
-   def pod.build_type;
-    Pod::BuildType.static_library
-   end
+ if pod.name.start_with?(*pod_targets)
+   Pod::UI.puts "#{pod.name}: Using overridden static_framework value of 'true'"
+        def pod.build_type
+          Pod::BuildType.static_library
+        end
+      end
+    end
   end
- end
-end
 
 
 post_install do |installer|

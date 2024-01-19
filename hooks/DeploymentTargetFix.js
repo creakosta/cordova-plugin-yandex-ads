@@ -17,6 +17,16 @@ module.exports = (context) => {
   if (podfileContent.indexOf("post_install") == -1) {
     podfileContent += `
 
+    
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+      def pod.build_type;
+        BuildType.new(:linkage => :static, :packaging => :framework)
+      end
+    end
+  end
+end
+
 post_install do |installer|
   installer.generated_projects.each do |project|
     project.targets.each do |target|
@@ -30,14 +40,6 @@ post_install do |installer|
         File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
       end
     end
-  end
-end
-
-installer.pods_project.targets.each do |target|
-  target.build_configurations.each do |config|
-    config.build_settings["HEADER_SEARCH_PATHS"] ||= "$(inherited) "
-    config.build_settings["HEADER_SEARCH_PATHS"] << '"$(PODS_TARGET_SRCROOT)" '
-    config.build_settings['HEADER_SEARCH_PATHS'] << '"$(PODS_ROOT)/Headers/Private/React-bridging" '
   end
 end
 

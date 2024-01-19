@@ -18,7 +18,6 @@ module.exports = (context) => {
     podfileContent += `
 
 post_install do |installer|
-  # fix xcode 15 DT_TOOLCHAIN_DIR - remove after fix oficially - https://github.com/CocoaPods/CocoaPods/issues/12065
   installer.aggregate_targets.each do |target|
       target.xcconfigs.each do |variant, xcconfig|
       xcconfig_path = target.client_root + target.xcconfig_relative_path(variant)

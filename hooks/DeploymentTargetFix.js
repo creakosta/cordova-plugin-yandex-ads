@@ -24,8 +24,7 @@ pre_install do |installer|
         BuildType.new(:linkage => :static, :packaging => :framework)
       end
     end
-  end
-end
+
 
 post_install do |installer|
   installer.generated_projects.each do |project|

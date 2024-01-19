@@ -17,13 +17,28 @@ module.exports = (context) => {
   if (podfileContent.indexOf("post_install") == -1) {
     podfileContent += `
 
+pod_targets = [
+     'DivKit',
+     'DivKit_Base',
+     'DivKit_BaseTiny',
+     'DivKit_BaseUI',
+     'DivKit_LayoutKit',
+     'DivKit_LayoutKitInterface',
+     'DivKit_CommonCore',
+     'DivKit_Serialization',
+     'DivKit_Networking'
+]
     
 pre_install do |installer|
-  installer.pod_targets.each do |pod|
-      def pod.build_type;
-        BuildType.new(:linkage => :static, :packaging => :framework)
-      end
-    end
+installer.pod_targets.each do |pod|
+ if target.name.start_with?(*pod_targets)
+   puts "Overriding as static framework:#{pod.name}"
+   def pod.build_type;
+    Pod::BuildType.static_library
+   end
+  end
+ end
+end
 
 
 post_install do |installer|

@@ -27,6 +27,7 @@ installer_representation.pods_project.targets.each do |target|
         config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
         config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
     end
+  end
 end
 
   `;

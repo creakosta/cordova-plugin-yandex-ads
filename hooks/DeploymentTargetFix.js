@@ -20,33 +20,13 @@ module.exports = (context) => {
   if (podfileContent.indexOf("post_install") == -1) {
     podfileContent += `
 
-pod_targets_for_disable_build_for_distribution = [
-     'DivKit',
-     'DivKit_Base',
-     'DivKit_BaseTiny',
-     'DivKit_BaseUI',
-     'DivKit_LayoutKit',
-     'DivKit_LayoutKitInterface',
-     'DivKit_CommonCore',
-     'DivKit_Serialization',
-     'DivKit_Networking'
-]    
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-           if target.name.start_with?(*pod_targets_for_disable_build_for_distribution)
-              target.build_configurations.each do |config|
-                  config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'NO'
-              end
-          end
-      end
-      
-
-  installer.pods_project.targets.each do |target|
+post_install do |installer_representation|
+installer_representation.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+        config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
     end
-  end
 end
 
   `;

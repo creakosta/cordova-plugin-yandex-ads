@@ -80,6 +80,11 @@
             </pods>
         </podspec>
 
+     <framework src="YandexMobileAds.framework" />
+        <framework src="YandexMobileMetrica.framework" />
+
+        <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+
     <config-file target="*-Info.plist" parent="SKAdNetworkItems">
     <array>
     <dict>

@@ -61,9 +61,6 @@
             <feature name="YandexAdsPlugin">
                 <param name="ios-package" value="YandexAdsPlugin" />
             </feature>
-            <!-- <preference name="SwiftVersion" value="5.8" /> -->
-            <!-- <preference name="deployment-target" value="13.0.0" /> -->
-            <!-- <preference name="ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES" value="$(inherited)" /> -->
         </config-file>
 	    
         <source-file src="src/ios/Common.swift" />
@@ -82,8 +79,6 @@
                 <pod name="YandexMobileAds" spec="~> 6.3.0" />
             </pods>
         </podspec>
-
-        <!-- <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/> -->
 
     <config-file target="*-Info.plist" parent="SKAdNetworkItems">
     <array>

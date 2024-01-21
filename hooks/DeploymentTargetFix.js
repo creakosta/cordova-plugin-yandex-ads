@@ -17,48 +17,15 @@ module.exports = (context) => {
   if (podfileContent.indexOf("post_install") == -1) {
     podfileContent += `
 
-pod_targets = [
-     'DivKit',
-     'DivKit_Base',
-     'DivKit_BaseTiny',
-     'DivKit_BaseUI',
-     'DivKit_LayoutKit',
-     'DivKit_LayoutKitInterface',
-     'DivKit_CommonCore',
-     'DivKit_Serialization',
-     'DivKit_Networking'
-]
-    
-pre_install do |installer|
-installer.pod_targets.each do |pod|
- if pod.name.start_with?(*pod_targets)
-   Pod::UI.puts "#{pod.name}: Using overridden static_framework value of 'true'"
-        def pod.build_type
-          Pod::BuildType.static_library
-        end
-      end
-    end
-  end
-
-
 post_install do |installer|
-  installer.generated_projects.each do |project|
-    project.targets.each do |target|
-      target.build_configurations.each do |config|
-        config.build_settings["ONLY_ACTIVE_ARCH"] = "NO"
-        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'NO'
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
-        xcconfig_path = config.base_configuration_reference.real_path
-        xcconfig = File.read(xcconfig_path)
-        xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
-        File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
-      end
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
     end
   end
 end
 
-
-  `;
+`;
 
     fs.writeFileSync(podfilePath, podfileContent, "utf-8");
 
@@ -67,4 +34,3 @@ end
     });
   }
 };
-

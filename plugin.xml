@@ -76,9 +76,19 @@
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="YandexMobileAdsMediation" spec="~> 6.4.1" />
-                <!-- <pod name="YandexMobileAds" spec="~> 6.4.1" /> -->
-		<!-- <pod name="IronSourceYandexMobileAdsAdapters" spec="~> 7.7.0.1" /> -->
+                <!-- <pod name="YandexMobileAdsMediation" spec="~> 6.4.1" /> -->
+                <pod name="YandexMobileAds" spec="~> 6.4.1" />
+		<pod name="AdColonyYandexMobileAdsAdapters" spec="~> 4.9.0.10" />
+		<pod name="AppLovinYandexMobileAdsAdapters" spec="~> 12.1.0.2" />
+		<pod name="BigoADSYandexMobileAdsAdapters" spec="~> 4.2.0.1" />
+		<pod name="ChartboostYandexMobileAdsAdapters" spec="~> 9.6.0.1" />
+		<pod name="GoogleYandexMobileAdsAdapters" spec="~> 10.14.0.2" />
+		<pod name="InMobiYandexMobileAdsAdapters" spec="~> 10.5.5.6" />
+		<pod name="IronSourceYandexMobileAdsAdapters" spec="~> 7.7.0.1" />
+		<pod name="MintegralYandexMobileAdsAdapters" spec="~> 7.5.6.1" />
+		<pod name="StartAppYandexMobileAdsAdapters" spec="~> 4.10.2.2" />
+		<pod name="UnityAdsYandexMobileAdsAdapters" spec="~> 4.9.2.2" />
+		<pod name="MyTargetYandexMobileAdsAdapters" spec="~> 5.20.1.1" />
             </pods>
         </podspec>
 
